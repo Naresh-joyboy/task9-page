@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagination</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+     
+
+  <div class="bigbox">
+    <div class="smallbox">
+        <button class="btn1" onclick="prevb()"><img src="img1.png">prev</button>
+        <ul>
+            <li class="link active" onclick="activeLink()">1</li>
+            <li class="link" onclick="activeLink()">2</li>
+            <li class="link" onclick="activeLink()">3</li>
+            <li class="link" onclick="activeLink()">4</li>
+            <li class="link" onclick="activeLink()">5</li>
+            <li class="link" onclick="activeLink()">6</li>
+            <li class="link" onclick="activeLink()">7</li>
+        </ul>
+        <button class="btn2" onclick="nextb()">next<img src="img1.png"></button>
+    </div>
+  </div>
+
+
+  <script>
+  let link =document.getElementsByClassName("link");
+
+  let currentvalue = 1;
+
+  function activeLink(){
+      for(i of link){
+          i.classList.remove("active");
+
+      }
+      event.target.classList.add("active");
+      currentvalue= event.target.value;
+  }
+
+  function prevb(){
+    if(currentvalue > 1){
+        for(i of link){
+            i.classList.remove("active");
+        }
+        currentvalue--;
+        link[currentvalue-1].classList.add("active");
+    }
+  }
+  function nextb(){
+    if(currentvalue < 7){
+        for(i of link){
+             i.classList.remove("active");
+        }
+        currentvalue++;
+        link[currentvalue-1].classList.add("active");
+    }
+  }
+
+ </script>  
+</body>
+</html>
